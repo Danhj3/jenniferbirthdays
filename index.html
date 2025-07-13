@@ -3,136 +3,141 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cumpleaños de Jennifer • Cuenta Regresiva</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Playfair+Display:wght@900&family=Pacifico&display=swap" rel="stylesheet">
+  <title>Cuenta Regresiva - Cumpleaños de Jennifer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Pacifico&family=Playfair+Display:wght@900&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       min-height: 100vh;
+      min-width: 100vw;
       font-family: 'Montserrat', Arial, sans-serif;
-      background: url('https://i.imgur.com/3PGcpdw.png') center center/cover no-repeat #fffbe9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .container {
-      background: rgba(255,255,255,0.79);
-      border-radius: 2.2rem;
-      box-shadow: 0 0 60px 0 #f8dbfa77, 0 2px 32px #a48cc97a;
-      padding: 2.1rem 1.3rem 2.3rem 1.3rem;
-      max-width: 460px;
-      margin: 1rem;
-      text-align: center;
-      overflow: hidden;
-      border: 3px solid #ffe2f5;
-      backdrop-filter: blur(2.5px);
-    }
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.3rem;
-      color: #b74db2;
-      font-weight: 900;
-      margin-bottom: 1.5em;
-      letter-spacing: .04em;
-      text-shadow: 0 2px 12px #fff7, 0 1px 14px #c6b8e499;
-      background: linear-gradient(90deg, #b74db2 60%, #ffe066 90%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .countdown-flex {
-      display: flex;
-      justify-content: center;
-      gap: .9em;
-      margin-bottom: 2.4em;
-    }
-    .block {
-      background: linear-gradient(130deg, #ffe9f6 60%, #f2e8e6 100%);
-      color: #b74db2;
-      border-radius: 1.15em;
-      min-width: 67px;
-      padding: 1.1em 0 .7em 0;
-      box-shadow: 0 2px 16px #b74db240;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.25rem;
-      font-weight: 900;
-      letter-spacing: 0.02em;
+      background: url('https://i.imgur.com/3PGcpdw.png') center center/cover no-repeat fixed;
       display: flex;
       flex-direction: column;
       align-items: center;
-      border: 2px solid #ffe06699;
-      text-shadow: 0 1px 14px #fff, 0 1px 10px #ffe7fa99;
-      margin-bottom: .1em;
-      transition: box-shadow .4s;
+      justify-content: center;
     }
-    .block:hover {
-      box-shadow: 0 0 24px #ffe066b9, 0 2px 16px #eebcf6bb;
+    .main-content {
+      width: 100vw;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.20);
+      backdrop-filter: blur(2px);
+      box-sizing: border-box;
+    }
+    .floral-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #942f8a;
+      letter-spacing: .03em;
+      margin-top: 2vh;
+      margin-bottom: 1vh;
+      text-align: center;
+      text-shadow: 0 2px 24px #fff8, 0 3px 18px #932f6b50, 0 1px 14px #c7b7e4aa;
+      background: linear-gradient(90deg, #d78fd6 65%, #ffe066 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .counter-box {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.1em;
+      margin: 0 auto 1.7em auto;
+      padding: 0.7em 1.2em;
+      background: rgba(255,255,255,0.68);
+      border-radius: 2.3em;
+      box-shadow: 0 2px 24px #fff6, 0 0 16px #ffb3e599;
+      max-width: 410px;
+      border: 2.5px solid #ffb3e5;
+    }
+    .count-block {
+      flex: 1 0 60px;
+      min-width: 64px;
+      background: linear-gradient(120deg, #fff6fc 40%, #ffe066 100%);
+      color: #9b36a5;
+      border-radius: 1.3em;
+      margin: 0 .12em;
+      box-shadow: 0 1.5px 12px #ffe4fa8a;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.1rem;
+      font-weight: 900;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      letter-spacing: 0.02em;
+      text-shadow: 0 2px 8px #fff, 0 1px 10px #d89cd7a0;
+      border: 1.5px solid #f5b4e9;
+      position: relative;
+      transition: box-shadow .3s;
     }
     .label {
-      font-size: .82em;
+      font-size: .87em;
       margin-top: .10em;
       font-family: 'Pacifico', cursive;
       font-weight: 800;
-      color: #e694c0;
-      letter-spacing: .03em;
-      text-shadow: 0 2px 8px #fff8;
+      color: #b64fb6;
+      letter-spacing: .02em;
+      text-shadow: 0 1.5px 5px #fff8, 0 1px 7px #ffaed999;
       text-transform: lowercase;
     }
     .flowers-phrase {
-      margin: 2em 0 0.6em 0;
-      font-size: 1.19em;
+      margin: 1.2em 0 0.6em 0;
+      font-size: 1.17em;
       font-family: 'Pacifico', cursive;
       font-weight: 700;
-      letter-spacing: .06em;
-      color: #b74db2;
-      background: linear-gradient(90deg, #ffe066 15%, #e694c0 60%, #b74db2 90%);
+      letter-spacing: .08em;
+      color: #af45a3;
+      background: linear-gradient(90deg, #ffe066 20%, #e694c0 65%, #b74db2 90%);
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-shadow: 0 2px 14px #fff7, 0 1px 10px #ffcfe377;
+      text-shadow: 0 1px 10px #fff8, 0 1px 12px #ffb3e588;
       text-align: center;
-      transition: filter .3s;
+    }
+    .happy-birthday {
+      margin-top: 2em;
+      font-size: 1.3rem;
+      font-family: 'Playfair Display', serif;
+      color: #b74db2;
+      background: linear-gradient(135deg,#ffe9f6,#ffe066 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
+      text-shadow: 0 2px 8px #fff8, 0 1px 7px #ffcfe3a1;
+      text-align: center;
     }
     @media (max-width: 600px) {
-      .container { padding: 1em 0.4em; }
-      h1 { font-size: 1.13rem;}
-      .block { font-size: 1.05rem; min-width: 37px; }
+      .main-content {padding: 0 0.3em;}
+      .floral-title { font-size: 1.2rem;}
+      .counter-box {max-width: 98vw;gap: .55em;padding: 0.55em 0.2em;}
+      .count-block {font-size: 1.09rem; min-width: 34px;}
+      .flowers-phrase { font-size: 1em; }
+      .happy-birthday { font-size: 1.01rem;}
+    }
+    @media (max-width: 410px) {
+      .counter-box {gap: .25em;}
+      .flowers-phrase { font-size: 0.95em; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Cuenta regresiva<br>al cumpleaños de Jennifer</h1>
-    <div id="countdown" class="countdown-flex" aria-label="Cuenta regresiva al cumpleaños"></div>
+  <div class="main-content">
+    <div class="floral-title">Cuenta regresiva al cumpleaños de Jennifer</div>
+    <div class="counter-box">
+      <div class="count-block">21 <span class="label">días</span></div>
+      <div class="count-block">13 <span class="label">horas</span></div>
+      <div class="count-block">47 <span class="label">min</span></div>
+      <div class="count-block">28 <span class="label">seg</span></div>
+    </div>
     <div class="flowers-phrase">I can buy myself flowers ✿</div>
+    <div class="happy-birthday">¡Feliz Cumpleaños Jennifer!</div>
   </div>
-  <script>
-    // FECHA OBJETIVO: 31 de agosto de 2024, 00:00:00 (Bolivia = GMT-4)
-    const cumple = new Date("2024-08-31T00:00:00-04:00").getTime();
-
-    function updateCountdown() {
-      const now = new Date().getTime();
-      let diff = cumple - now;
-
-      if (diff <= 0) {
-        document.getElementById("countdown").innerHTML =
-          `<span class="block" style="font-size:1.4rem;background:linear-gradient(135deg,#ffe9f6,#ffe066);color:#b74db2;">¡Feliz Cumpleaños Jennifer!</span>`;
-        return;
-      }
-
-      const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const horas = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const min = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const seg = Math.floor((diff % (1000 * 60)) / 1000);
-
-      document.getElementById("countdown").innerHTML = `
-        <div class="block">${dias}<span class="label">días</span></div>
-        <div class="block">${horas}<span class="label">horas</span></div>
-        <div class="block">${min}<span class="label">min</span></div>
-        <div class="block">${seg}<span class="label">seg</span></div>
-      `;
-    }
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-  </script>
 </body>
 </html>
+
