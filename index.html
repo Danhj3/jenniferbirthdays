@@ -13,130 +13,184 @@
       font-family: 'Montserrat', Arial, sans-serif;
       background: url('https://i.imgur.com/3PGcpdw.png') center center/cover no-repeat fixed;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
+      position: relative;
+    }
+    .bg-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background: linear-gradient(110deg,rgba(250,244,255,.54) 55%,rgba(243,233,255,.84) 100%);
+      pointer-events: none;
+      backdrop-filter: blur(0.5px);
     }
     .main-content {
-      width: 100vw;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255,255,255,0.20);
-      backdrop-filter: blur(2px);
+      position: relative;
+      z-index: 1;
+      background: rgba(255,255,255,0.95);
+      border-radius: 2.5em;
+      box-shadow: 0 2px 30px #ceafd1aa, 0 2px 60px #fff9;
+      padding: 2.2em 1.4em 2.2em 1.4em;
+      max-width: 410px;
+      margin: 1.2em;
+      text-align: center;
+      border: 3px solid #fff;
+      width: 96vw;
       box-sizing: border-box;
     }
     .floral-title {
       font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
+      font-size: 2.1rem;
       font-weight: 900;
-      color: #942f8a;
+      color: #821e7e;
       letter-spacing: .03em;
-      margin-top: 2vh;
-      margin-bottom: 1vh;
-      text-align: center;
-      text-shadow: 0 2px 24px #fff8, 0 3px 18px #932f6b50, 0 1px 14px #c7b7e4aa;
-      background: linear-gradient(90deg, #d78fd6 65%, #ffe066 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      margin-bottom: .7em;
+      text-shadow: 0 2px 16px #fff7, 0 1px 10px #c7b7e480;
+    }
+    .inspo {
+      font-family: 'Pacifico', cursive;
+      color: #ba58b6;
+      font-size: 1.07rem;
+      letter-spacing: 0.03em;
+      margin-bottom: 1.15em;
+      text-shadow: 0 1px 8px #fff7;
     }
     .counter-box {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.1em;
-      margin: 0 auto 1.7em auto;
-      padding: 0.7em 1.2em;
-      background: rgba(255,255,255,0.68);
-      border-radius: 2.3em;
-      box-shadow: 0 2px 24px #fff6, 0 0 16px #ffb3e599;
-      max-width: 410px;
-      border: 2.5px solid #ffb3e5;
+      flex-direction: column;
+      align-items: center;
+      gap: .35em;
+      margin: 0 auto 1.1em auto;
     }
     .count-block {
-      flex: 1 0 60px;
-      min-width: 64px;
-      background: linear-gradient(120deg, #fff6fc 40%, #ffe066 100%);
-      color: #9b36a5;
-      border-radius: 1.3em;
-      margin: 0 .12em;
-      box-shadow: 0 1.5px 12px #ffe4fa8a;
+      background: linear-gradient(120deg, #fff7fa 60%, #ffe5fc 100%);
+      color: #821e7e;
+      border-radius: 1.6em;
+      box-shadow: 0 2px 12px #dabceea1, 0 1.5px 10px #fff7;
       font-family: 'Playfair Display', serif;
-      font-size: 2.1rem;
+      font-size: 3.5rem;
       font-weight: 900;
+      min-width: 120px;
+      padding: 0.2em 0;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      letter-spacing: 0.02em;
-      text-shadow: 0 2px 8px #fff, 0 1px 10px #d89cd7a0;
-      border: 1.5px solid #f5b4e9;
+      border: 2.5px solid #e6b7f3;
+      text-shadow: 0 1.5px 8px #fff;
+      margin-bottom: 0.3em;
       position: relative;
-      transition: box-shadow .3s;
+      animation: bounce 2.4s infinite alternate cubic-bezier(.68,2,.27,.8);
+    }
+    @keyframes bounce {
+      0%,100% {transform: scale(1);}
+      50% {transform: scale(1.06);}
     }
     .label {
-      font-size: .87em;
-      margin-top: .10em;
+      font-size: 1.01em;
+      margin-top: .08em;
       font-family: 'Pacifico', cursive;
       font-weight: 800;
-      color: #b64fb6;
-      letter-spacing: .02em;
-      text-shadow: 0 1.5px 5px #fff8, 0 1px 7px #ffaed999;
+      color: #c467b6;
+      text-shadow: 0 1px 6px #fff;
       text-transform: lowercase;
+      letter-spacing: .01em;
+    }
+    /* Flor SVG decorativa */
+    .decor-flower {
+      margin: 1.3em auto .6em auto;
+      width: 60px;
+      height: 60px;
+      display: block;
+      opacity: 0.76;
     }
     .flowers-phrase {
-      margin: 1.2em 0 0.6em 0;
-      font-size: 1.17em;
+      margin: 1.4em 0 0.7em 0;
+      font-size: 1.23em;
       font-family: 'Pacifico', cursive;
       font-weight: 700;
-      letter-spacing: .08em;
-      color: #af45a3;
-      background: linear-gradient(90deg, #ffe066 20%, #e694c0 65%, #b74db2 90%);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 1px 10px #fff8, 0 1px 12px #ffb3e588;
+      letter-spacing: .10em;
+      color: #b74db2;
+      text-shadow: 0 2px 10px #fff, 0 1px 12px #dfa0e288;
       text-align: center;
+    }
+    .extra-msg {
+      margin: 1.1em 0 0.4em 0;
+      font-size: 1.07em;
+      font-family: 'Montserrat', sans-serif;
+      color: #632c65;
+      text-shadow: 0 1px 6px #fff6;
+    }
+    .poesia {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.06em;
+      color: #e27fb9;
+      margin: .6em 0 .3em 0;
+      letter-spacing: 0.02em;
+      text-shadow: 0 1px 8px #fff7;
     }
     .happy-birthday {
-      margin-top: 2em;
-      font-size: 1.3rem;
+      margin-top: 1.2em;
+      font-size: 1.25rem;
       font-family: 'Playfair Display', serif;
-      color: #b74db2;
-      background: linear-gradient(135deg,#ffe9f6,#ffe066 80%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #821e7e;
       font-weight: bold;
-      text-shadow: 0 2px 8px #fff8, 0 1px 7px #ffcfe3a1;
+      text-shadow: 0 2px 8px #fff8, 0 1px 7px #c7b7e480;
       text-align: center;
+      letter-spacing: .05em;
+    }
+    .hashtag {
+      display: block;
+      margin-top: 2.1em;
+      margin-bottom: .1em;
+      color: #b74db2;
+      font-family: 'Pacifico', cursive;
+      font-size: 1.07em;
+      letter-spacing: 0.09em;
+      opacity: .85;
+      text-shadow: 0 1px 8px #fff6;
     }
     @media (max-width: 600px) {
-      .main-content {padding: 0 0.3em;}
-      .floral-title { font-size: 1.2rem;}
-      .counter-box {max-width: 98vw;gap: .55em;padding: 0.55em 0.2em;}
-      .count-block {font-size: 1.09rem; min-width: 34px;}
+      .main-content {padding: 1.1em 0.1em; max-width:99vw;}
+      .floral-title { font-size: 1.18rem;}
+      .count-block {font-size: 2.1rem; min-width: 80px;}
       .flowers-phrase { font-size: 1em; }
-      .happy-birthday { font-size: 1.01rem;}
+      .happy-birthday { font-size: 1rem;}
     }
     @media (max-width: 410px) {
-      .counter-box {gap: .25em;}
-      .flowers-phrase { font-size: 0.95em; }
+      .flowers-phrase { font-size: 0.92em; }
     }
   </style>
 </head>
 <body>
+  <div class="bg-overlay"></div>
   <div class="main-content">
+    <!-- Decoración floral superior -->
+    <svg class="decor-flower" viewBox="0 0 64 64" fill="none">
+      <circle cx="32" cy="32" r="20" fill="#ffe5fc"/>
+      <path d="M32 12 Q38 24, 52 20 Q44 32, 52 44 Q38 40, 32 52 Q26 40, 12 44 Q20 32, 12 20 Q26 24, 32 12Z" fill="#e694c0" opacity="0.65"/>
+      <circle cx="32" cy="32" r="8" fill="#fff6fa" stroke="#c467b6" stroke-width="2"/>
+    </svg>
     <div class="floral-title">Cuenta regresiva al cumpleaños de Jennifer</div>
+    <div class="inspo">Florece sin permiso, ríe sin motivo.<br> La vida te celebra a ti, ¡hazlo a lo grande!</div>
     <div class="counter-box">
-      <div class="count-block">21 <span class="label">días</span></div>
-      <div class="count-block">13 <span class="label">horas</span></div>
-      <div class="count-block">47 <span class="label">min</span></div>
-      <div class="count-block">28 <span class="label">seg</span></div>
+      <div class="count-block">49 <span class="label">días</span></div>
     </div>
     <div class="flowers-phrase">I can buy myself flowers ✿</div>
+    <div class="extra-msg">El mundo se llena de color cada día que se acerca.<br><span class="poesia\">Eres la flor más especial de este jardín.</span></div>
     <div class="happy-birthday">¡Feliz Cumpleaños Jennifer!</div>
+    <span class="hashtag">#GucciFlora #FlowerMood #Jennifer2025 #MileyCyrusMood</span>
+    <audio id="player" autoplay loop style="display:none;">
+      <source src="miley.mp3" type="audio/mpeg">
+    </audio>
+    <script>
+      // Cambia el número a tu segundo favorito (ejemplo: 30)
+      const startAt = 32;
+      const audio = document.getElementById('player');
+      audio.addEventListener('loadedmetadata', function() {
+        audio.currentTime = startAt;
+      });
+    </script>
   </div>
 </body>
 </html>
