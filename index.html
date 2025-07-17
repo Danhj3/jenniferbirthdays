@@ -81,6 +81,13 @@
       margin-bottom: 0.3em;
       position: relative;
       animation: bounce 2.4s infinite alternate cubic-bezier(.68,2,.27,.8);
+      cursor: pointer;
+      transition: opacity 0.4s, background 0.3s;
+    }
+    .count-block.active {
+      opacity: 0.7;
+      pointer-events: none;
+      background: linear-gradient(120deg, #f5e2f7 60%, #e8d2f3 100%);
     }
     @keyframes bounce {
       0%,100% {transform: scale(1);}
@@ -95,6 +102,19 @@
       text-shadow: 0 1px 6px #fff;
       text-transform: lowercase;
       letter-spacing: .01em;
+    }
+    /* Mensaje click */
+    .click-msg {
+      font-size: 1em;
+      color: #b74db2;
+      margin-top: 0.15em;
+      font-family: 'Pacifico', cursive;
+      animation: msgfade 2.2s 1;
+    }
+    @keyframes msgfade {
+      from { opacity: 0; }
+      50% { opacity: 1; }
+      to { opacity: 0.6; }
     }
     /* Flor SVG decorativa */
     .decor-flower {
@@ -165,7 +185,7 @@
 <body>
   <div class="bg-overlay"></div>
   <div class="main-content">
-    <!-- Decoración floral superior -->
+    <!-- Flor decorativa superior -->
     <svg class="decor-flower" viewBox="0 0 64 64" fill="none">
       <circle cx="32" cy="32" r="20" fill="#ffe5fc"/>
       <path d="M32 12 Q38 24, 52 20 Q44 32, 52 44 Q38 40, 32 52 Q26 40, 12 44 Q20 32, 12 20 Q26 24, 32 12Z" fill="#e694c0" opacity="0.65"/>
@@ -174,24 +194,43 @@
     <div class="floral-title">Cuenta regresiva al cumpleaños de Jennifer</div>
     <div class="inspo">Florece sin permiso, ríe sin motivo.<br> La vida te celebra a ti, ¡hazlo a lo grande!</div>
     <div class="counter-box">
-      <div class="count-block">45 <span class="label">días</span></div>
+      <div class="count-block" id="numeroDias" title="Haz click para escuchar la música">
+        45 <span class="label">días</span>
+        <div class="click-msg" id="msgClick">¡Haz click aquí para la música!</div>
+      </div>
     </div>
     <div class="flowers-phrase">I can buy myself flowers ✿</div>
-    <div class="extra-msg">El mundo se llena de color cada día que se acerca.<br><span class="poesia\">Eres la flor más especial de este jardín.</span></div>
+    <div class="extra-msg">El mundo se llena de color cada día que se acerca.<br>
+      <span class="poesia">Eres la flor más especial de este jardín.</span>
+    </div>
     <div class="happy-birthday">¡Feliz Cumpleaños Jennifer!</div>
     <span class="hashtag">#GucciFlora #FlowerMood #Jennifer2025 #MileyCyrusMood</span>
-    <audio id="player" autoplay loop style="display:none;">
+    <audio id="player" loop style="display:none;">
       <source src="miley.mp3" type="audio/mpeg">
     </audio>
-    <script>
-      // Cambia el número a tu segundo favorito (ejemplo: 30)
-      const startAt = 31;
-      const audio = document.getElementById('player');
-      audio.addEventListener('loadedmetadata', function() {
-        audio.currentTime = startAt;
-      });
-    </script>
   </div>
+  <script>
+    const audio = document.getElementById('player');
+    const numDias = document.getElementById('numeroDias');
+    const msgClick = document.getElementById('msgClick');
+
+    numDias.addEventListener('click', function playMusicOnce(){
+      audio.currentTime = 31;
+      audio.play();
+      numDias.classList.add('active');
+      msgClick.innerHTML = "♫ Música activada";
+      msgClick.style.color = "#c467b6";
+      setTimeout(()=>{ msgClick.style.display = "none"; }, 2200);
+      numDias.title = "";
+      numDias.style.cursor = "default";
+      // Solo permite click una vez:
+      numDias.removeEventListener('click', playMusicOnce);
+    });
+
+    audio.addEventListener('loadedmetadata', function() {
+      audio.currentTime = 31;
+    });
+  </script>
 </body>
 </html>
 
